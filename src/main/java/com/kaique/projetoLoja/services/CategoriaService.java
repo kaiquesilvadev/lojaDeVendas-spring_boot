@@ -21,4 +21,8 @@ public class CategoriaService {
 	public Categoria findById(Long id) {
 		return repository.findById(id).orElse(null);
 	}
+	
+	public Categoria save(Categoria categoria) {
+	 return repository.save(categoria);
+	}
 }
