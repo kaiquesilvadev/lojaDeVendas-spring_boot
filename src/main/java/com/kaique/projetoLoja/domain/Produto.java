@@ -10,40 +10,40 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@EqualsAndHashCode
 @NoArgsConstructor
-@Getter
-@Setter
+@EqualsAndHashCode
+@Getter @Setter
 @Entity
-@Table(name = "tb_categoria")
-public class Categoria implements Serializable {
+@Table(name = "tb_produto")
+public class Produto implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
 	@NotBlank
 	private String nome;
+	
+	@NotNull
+	private Double preco;
 
-	@ManyToMany
-	@JoinTable(name = "Produto_categoria", joinColumns = @JoinColumn(name = "categoria_id"), inverseJoinColumns = @JoinColumn(name = "produto_id"))
-	@JsonIgnoreProperties("categorias")
-	private List<Produto> produtos = new ArrayList<>();
-
-	public Categoria(Long id, @NotBlank String nome) {
+	@ManyToMany(mappedBy = "produtos")
+	@JsonIgnoreProperties("produtos")
+	private List<Categoria> categorias = new ArrayList<>();
+	
+	public Produto(Long id, @NotBlank String nome, @NotBlank Double preco) {
 		this.id = id;
 		this.nome = nome;
+		this.preco = preco;
 	}
-
 }
