@@ -14,41 +14,41 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kaique.projetoLoja.domain.Produto;
-import com.kaique.projetoLoja.services.ProdutoService;
+import com.kaique.projetoLoja.domain.Cidade;
+import com.kaique.projetoLoja.services.CidadeService;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/produtos")
-public class ProdutoResources {
+@RequestMapping("/cidades")
+public class CidadeResources {
 
 	@Autowired
-	private ProdutoService service;
+	private CidadeService service;
 
 	@GetMapping
-	public ResponseEntity<List<Produto>> findAll() {
-		List<Produto> listaProdutos = service.findAll();
-		return listaProdutos.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(listaProdutos);
+	public ResponseEntity<List<Cidade>> findAll() {
+		List<Cidade> listaCidades = service.findAll();
+		return listaCidades.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
+				: ResponseEntity.ok().body(listaCidades);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Produto> findById(@PathVariable Long id) {
-		Produto produto = service.findById(id);
+	public ResponseEntity<Cidade> findById(@PathVariable Long id) {
+		Cidade cidade = service.findById(id);
 
-		return produto == null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(produto);
+		return cidade == null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
+				: ResponseEntity.ok().body(cidade);
 	}
 
 	@PostMapping
-	public ResponseEntity<Produto> sava(@Valid @RequestBody Produto produto) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(produto));
+	public ResponseEntity<Cidade> sava(@Valid @RequestBody Cidade cidade) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(cidade));
 	}
 
 	@PutMapping
-	public ResponseEntity<Produto> update(@Valid @RequestBody Produto produto) {
-		return service.update(produto) != null ? ResponseEntity.status(HttpStatus.CREATED).body(produto)
+	public ResponseEntity<Cidade> update(@Valid @RequestBody Cidade cidade) {
+		return service.update(cidade) != null ? ResponseEntity.status(HttpStatus.CREATED).body(cidade)
 				: ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
