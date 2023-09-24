@@ -2,10 +2,14 @@ package com.kaique.projetoLoja.domain;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -29,4 +33,9 @@ public class Cidade implements Serializable{
 	
 	@NotBlank
 	private String nome;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("cidades")
+	@JoinColumn(name = "estado_id")
+	private Estado estado;
 }

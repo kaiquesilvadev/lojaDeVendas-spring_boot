@@ -19,6 +19,8 @@ public class Testconfig implements CommandLineRunner {
 
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	
+	
 
 	@Override
 	public void run(String... args) throws Exception {
