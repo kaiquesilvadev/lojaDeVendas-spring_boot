@@ -14,13 +14,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Getter @Setter
 @Entity
-@Table(name = "tb_estado")
-public class Estado implements Serializable{
+@Table(name = "tb_cidade")
+public class Cidade implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
