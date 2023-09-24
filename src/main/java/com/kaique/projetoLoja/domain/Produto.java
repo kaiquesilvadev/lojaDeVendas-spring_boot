@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -40,6 +41,9 @@ public class Produto implements Serializable{
 	@ManyToMany(mappedBy = "produtos")
 	@JsonIgnoreProperties("produtos")
 	private List<Categoria> categorias = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "id.produto")
+	private List<ItemPedido> itens = new ArrayList<>();
 	
 	public Produto(Long id, @NotBlank String nome, @NotBlank Double preco) {
 		this.id = id;
