@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kaique.projetoLoja.domain.Cliente;
-import com.kaique.projetoLoja.enums.TipoCliente;
 import com.kaique.projetoLoja.repositories.ClienteRepository;
 
 
