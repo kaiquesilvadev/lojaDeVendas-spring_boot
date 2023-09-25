@@ -14,7 +14,7 @@ public enum TipoCliente {
 		this.cod = cod;
 	}
 	
-	public static TipoCliente toRnum(Integer cod) {
+	public static TipoCliente toEnum(Integer cod) {
 		
 		if(cod == null) {
 			return null;
