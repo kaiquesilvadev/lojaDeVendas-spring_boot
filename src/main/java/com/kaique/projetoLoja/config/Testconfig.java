@@ -1,5 +1,6 @@
 package com.kaique.projetoLoja.config;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,15 @@ import org.springframework.context.annotation.Configuration;
 
 import com.kaique.projetoLoja.domain.Categoria;
 import com.kaique.projetoLoja.domain.Cidade;
+import com.kaique.projetoLoja.domain.Cliente;
+import com.kaique.projetoLoja.domain.Endereco;
 import com.kaique.projetoLoja.domain.Estado;
 import com.kaique.projetoLoja.domain.Produto;
+import com.kaique.projetoLoja.enums.TipoCliente;
 import com.kaique.projetoLoja.repositories.CategoriaRepository;
 import com.kaique.projetoLoja.repositories.CidadeRepository;
+import com.kaique.projetoLoja.repositories.ClienteRepository;
+import com.kaique.projetoLoja.repositories.EnderecoRepository;
 import com.kaique.projetoLoja.repositories.EstadoRepository;
 import com.kaique.projetoLoja.repositories.ProdutoRepository;
 
@@ -29,6 +35,12 @@ public class Testconfig implements CommandLineRunner {
 	
 	@Autowired
 	private CidadeRepository cidadeRepository;
+	
+	@Autowired
+	private EnderecoRepository enderecoRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -63,6 +75,18 @@ public class Testconfig implements CommandLineRunner {
 		
 		estadoRepository.saveAll(Arrays.asList(est1 , est2));
 		cidadeRepository.saveAll(Arrays.asList(c1 , c2 , c3));
+		
+		Cliente clil = new Cliente(null , "mria silva " , "maria@Gmail.com" , "3237652" , TipoCliente.PESSOA_FISICA);
+		
+		clil.getTelefones().addAll(Arrays.asList("9876328492" , "876438208"));
+		
+		Endereco e1 = new Endereco(null , "rua flores" , 300 , "Apto 4" , "jardin " ,"3847363647" , clil , c1);
+		Endereco e2 = new Endereco(null , "avenida matos" , 150 , "sala 34" , "centro " ,"3847363647" , clil , c2);
+		
+		clil.getEnderecos().addAll(Arrays.asList(e1 , e2));
+		
+		clienteRepository.save(clil);
+		enderecoRepository.saveAll(Arrays.asList(e1 , e2));
 	}
 
 }
