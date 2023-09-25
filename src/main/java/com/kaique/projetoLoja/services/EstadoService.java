@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kaique.projetoLoja.domain.Cidade;
 import com.kaique.projetoLoja.domain.Estado;
 import com.kaique.projetoLoja.repositories.EstadoRepository;
 
