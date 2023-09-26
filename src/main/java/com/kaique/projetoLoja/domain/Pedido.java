@@ -44,17 +44,19 @@ public class Pedido implements Serializable{
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
-	//private Endereco enderecoDeEntrega;
+	@ManyToOne
+	@JoinColumn(name = "endereco_id")
+	private Endereco enderecoDeEntrega;
 	 
 	@OneToMany(mappedBy = "id.pedido")
 	private List<ItemPedido> pedidos = new ArrayList<>();
 
-	public Pedido(Long id, Date data, Pagamento pagamento/*, Cliente cliente, Endereco enderecoDeEntrega*/) {
+	public Pedido(Long id, Date data, Pagamento pagamento , Cliente cliente, Endereco enderecoDeEntrega) {
 		this.id = id;
 		this.data = data;
 		this.pagamento = pagamento;
-		//this.cliente = cliente;
-		//this.enderecoDeEntrega = enderecoDeEntrega;
+		this.cliente = cliente;
+		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
 
 
