@@ -15,6 +15,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -26,7 +27,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 @Getter @Setter
@@ -55,6 +55,10 @@ public class Cliente implements Serializable {
 	@ElementCollection
 	@CollectionTable(name = "telefone")
 	private Set<String> telefones = new HashSet<>();
+	
+	@OneToMany(mappedBy = "cliente")
+	@JsonIgnoreProperties("cliente")
+	private List<Pedido> pedidos = new ArrayList<>();
 
 	public Cliente(Long id, @NotBlank @Size(min = 3) String nome, @Email String email, String cpfOuCnpj,
 			TipoCliente tipo) {
