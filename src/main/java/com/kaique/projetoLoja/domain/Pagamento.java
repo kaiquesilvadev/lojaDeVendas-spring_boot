@@ -26,7 +26,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "tb_pagamento")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Pagamento implements Serializable{
+public abstract class Pagamento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
