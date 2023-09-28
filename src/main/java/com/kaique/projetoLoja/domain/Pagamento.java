@@ -19,7 +19,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
 @EqualsAndHashCode
 @NoArgsConstructor
 @Getter @Setter
@@ -31,11 +30,26 @@ public abstract class Pagamento implements Serializable{
 	
 	@Id
 	private Long id;
-	private EstadoPagamento estado;
+	private Integer estado;
 	
 	@OneToOne
 	@JoinColumn(name = "pedigo_id")
 	@MapsId
 	@JsonIgnoreProperties("pagamento")
 	private Pedido pedido;
+
+	public Pagamento(Long id, EstadoPagamento estado, Pedido pedido) {
+		super();
+		this.id = id;
+		this.estado = estado.getCod();
+		this.pedido = pedido;
+	}
+
+	public EstadoPagamento getEstado() {
+		return EstadoPagamento.noEnum(estado);
+	}
+
+	public void setEstado(EstadoPagamento estado) {
+		this.estado = estado.getCod();
+	}
 }

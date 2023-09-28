@@ -49,7 +49,7 @@ public class Pedido implements Serializable{
 	private Endereco enderecoDeEntrega;
 	 
 	@OneToMany(mappedBy = "id.pedido")
-	private List<ItemPedido> pedidos = new ArrayList<>();
+	private List<ItemPedido> itens = new ArrayList<>();
 
 	public Pedido(Long id, Date data,Cliente cliente, Endereco enderecoDeEntrega) {
 		this.id = id;
