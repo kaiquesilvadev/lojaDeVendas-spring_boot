@@ -114,6 +114,8 @@ public class Testconfig implements CommandLineRunner {
 		
 		pedidoRepository.saveAll(Arrays.asList(ped1 , ped2));
 		pagamentoRepository.saveAll(Arrays.asList(pagto1 , pagto2));
+		
+		
 	}
 
 }
