@@ -12,6 +12,7 @@ import com.kaique.projetoLoja.domain.Cidade;
 import com.kaique.projetoLoja.domain.Cliente;
 import com.kaique.projetoLoja.domain.Endereco;
 import com.kaique.projetoLoja.domain.Estado;
+import com.kaique.projetoLoja.domain.ItemPedido;
 import com.kaique.projetoLoja.domain.Pagamento;
 import com.kaique.projetoLoja.domain.PagamentoComBoleto;
 import com.kaique.projetoLoja.domain.PagamentoComCartao;
@@ -24,6 +25,7 @@ import com.kaique.projetoLoja.repositories.CidadeRepository;
 import com.kaique.projetoLoja.repositories.ClienteRepository;
 import com.kaique.projetoLoja.repositories.EnderecoRepository;
 import com.kaique.projetoLoja.repositories.EstadoRepository;
+import com.kaique.projetoLoja.repositories.ItemPedidoRepository;
 import com.kaique.projetoLoja.repositories.PagamentoRepository;
 import com.kaique.projetoLoja.repositories.PedidoRepository;
 import com.kaique.projetoLoja.repositories.ProdutoRepository;
@@ -54,6 +56,9 @@ public class Testconfig implements CommandLineRunner {
 	
 	@Autowired
 	private PedidoRepository pedidoRepository;
+	
+	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -115,6 +120,18 @@ public class Testconfig implements CommandLineRunner {
 		pedidoRepository.saveAll(Arrays.asList(ped1 , ped2));
 		pagamentoRepository.saveAll(Arrays.asList(pagto1 , pagto2));
 		
+		ItemPedido ip1 = new ItemPedido(prod1, ped1, 0.00, 1 , 2000.00);
+		ItemPedido ip2 = new ItemPedido(prod3, ped1, 0.00, 2 , 80.00);
+		ItemPedido ip3 = new ItemPedido(prod2, ped2, 100.00, 1 , 800.00);
+		
+		ped1.getItens().addAll(Arrays.asList(ip1 , ip2));
+		ped2.getItens().addAll(Arrays.asList(ip3));
+		
+		prod1.getItens().addAll(Arrays.asList(ip1));
+		prod2.getItens().addAll(Arrays.asList(ip3));
+		prod3.getItens().addAll(Arrays.asList(ip2));
+		
+		itemPedidoRepository.saveAll(Arrays.asList(ip1 , ip2 , ip3));
 		
 	}
 

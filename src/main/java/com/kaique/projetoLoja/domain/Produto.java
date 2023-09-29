@@ -44,7 +44,7 @@ public class Produto implements Serializable{
 	
 	@OneToMany(mappedBy = "id.produto")
 	@JsonIgnoreProperties("produto")
-	private List<ItemPedido> pedidos = new ArrayList<>();
+	private List<ItemPedido> itens = new ArrayList<>();
 	
 	public Produto(Long id, @NotBlank String nome, @NotBlank Double preco) {
 		this.id = id;
