@@ -15,7 +15,7 @@ Este repositório contém um projeto de uma Loja de Vendas Online desenvolvida c
 
 ## Padrão de Camadas
 
-- No projeto da Loja de Vendas Online, seguimos um padrão de camadas bem estruturadas, típico de um aplicativo Spring Boot. Essa abordagem é fundamental para manter a organização, escalabilidade e facilidade de manutenção do código. As principais camadas do projeto são as seguintes.
+- No projeto da Loja de Vendas Online, segui um padrão de camadas bem estruturadas, típico de um aplicativo Spring Boot. Essa abordagem é fundamental para manter a organização, escalabilidade e facilidade de manutenção do código. As principais camadas do projeto são as seguintes.
 
 ![Padrão de Camadas](https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/Captura%20de%20tela%202023-09-21%20185426.png)
 
