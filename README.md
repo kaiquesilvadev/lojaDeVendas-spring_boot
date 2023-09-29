@@ -36,6 +36,7 @@ No projeto, segui um padrão de camadas típico em um aplicativo Spring Boot com
 - No contexto deste projeto da Loja de Vendas Online desenvolvido com Spring Boot, o diagrama de objetos nos ajuda a visualizar como as entidades, como produtos, clientes, pedidos e pagamentos, são instanciados e conectados durante as diferentes operações do sistema.
 
 ![Diagrama de Objetos](https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/Captura%20de%20tela%202023-09-28%20210357.png)
+
 ## Começando
 
 Siga as instruções abaixo para configurar e executar o projeto em sua máquina local.
@@ -68,6 +69,21 @@ cd workshop-springboot3-jpa
 ./mvnw spring-boot:run
 
 ```
+
+## Implementações Futuras
+
+Este projeto já representa um passo significativo no desenvolvimento de um sistema eficiente e funcional. No entanto, estau comprometido em continuar aprimorando e expandindo suas funcionalidades. Algumas das implementações futuras que planejamos explorar incluem:
+
+### 1. Testes Unitários
+
+A qualidade do código é essencial para garantir a confiabilidade e o desempenho do sistema. Para alcançar isso, planejo implementar um conjunto abrangente de testes unitários. Isso envolverá a criação de casos de teste para cada componente do aplicativo, incluindo controladores, serviços e repositórios.
+
+### 2. Melhorias na Segurança
+
+A segurança dos dados do cliente e do sistema é uma prioridade máxima. Planejo implementar medidas adicionais, como autenticação e autorização, proteção contra vulnerabilidades conhecidas, criptografia de dados, monitoramento de segurança e auditorias regulares de segurança.
+
+Estas são apenas algumas das melhorias planejadas para garantir que nosso sistema da Loja de Vendas Online permaneça seguro e confiável à medida que continuo a expandir suas funcionalidades.
+
 
 ## Contribuições
 
