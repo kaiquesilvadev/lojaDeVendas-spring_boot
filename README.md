@@ -11,13 +11,13 @@ Este repositório contém um projeto de uma Loja de Vendas Online desenvolvida c
 
 - O diagrama de classes apresenta a estrutura do projeto e as relações entre as diferentes classes e entidades. Ele fornece uma visão visual do design da aplicação e ajuda a entender como as partes do sistema interagem entre si , O diagrama de classes do projeto da Loja de Vendas Online ilustra as principais entidades e suas relações.
 
-![Diagrama de Classes]([[https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/diagrama-de-classes.png](https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/Captura%20de%20tela%202023-09-28%20210330.png)](https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/Captura%20de%20tela%202023-09-28%20210330.png))
+![Diagrama de Classes](https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/Captura%20de%20tela%202023-09-28%20210330.png)
 
 ## Padrão de Camadas
 
 - No projeto da Loja de Vendas Online, seguimos um padrão de camadas bem estruturadas, típico de um aplicativo Spring Boot. Essa abordagem é fundamental para manter a organização, escalabilidade e facilidade de manutenção do código. As principais camadas do projeto são as seguintes.
 
-![Padrão de Camadas]([https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/padrao-de-camadas.png](https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/Captura%20de%20tela%202023-09-21%20185426.png))
+![Padrão de Camadas](https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/Captura%20de%20tela%202023-09-21%20185426.png)
 
 No projeto, segui um padrão de camadas típico em um aplicativo Spring Boot com MySQL e H2 para testes. As principais camadas incluem:
 
