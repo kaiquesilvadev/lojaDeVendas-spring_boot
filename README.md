@@ -44,7 +44,7 @@ Siga as instruções abaixo para configurar e executar o projeto em sua máquina
 ### Pré-requisitos
 
 - Java Development Kit (JDK)
-- MongoDB instalado e em execução
+- MySQL instalado e em execução
 - IDE de sua escolha (recomendado: IntelliJ IDEA ou Spring Tool Suite)
 
 ### Instalação
