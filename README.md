@@ -27,8 +27,15 @@ No projeto, segui um padrão de camadas típico em um aplicativo Spring Boot com
 
 - **Camada de Repositório (Repository):** Responsável pela comunicação com o banco de dados MySQL e H2. Ela fornece métodos para acessar e manipular os dados armazenados no banco de dados.
 
-- **Camada de Modelo (Model):** Representa as entidades do domínio do aplicativo, como classes de dados e objetos de transferência de dados (DTOs).
+- **Camada de Modelo (Model):** Representa as entidades do domínio do aplicativo.
 
+## Diagrama de Objetos
+
+- O diagrama de objetos é uma representação visual poderosa que nos permite compreender como as instâncias de classes interagem em tempo de execução dentro de nosso sistema. Ele oferece uma visão detalhada das relações entre objetos e suas características durante a execução do programa.
+
+- No contexto deste projeto da Loja de Vendas Online desenvolvido com Spring Boot, o diagrama de objetos nos ajuda a visualizar como as entidades, como produtos, clientes, pedidos e pagamentos, são instanciados e conectados durante as diferentes operações do sistema.
+
+![Diagrama de Objetos](https://github.com/kaiquesilvadev/lojaDeVendas-spring_boot/blob/main/Captura%20de%20tela%202023-09-28%20210357.png)
 ## Começando
 
 Siga as instruções abaixo para configurar e executar o projeto em sua máquina local.
