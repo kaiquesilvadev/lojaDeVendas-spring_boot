@@ -6,12 +6,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.kaique.projetoLoja.enums.TipoCliente;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -46,7 +49,7 @@ public class Cliente implements Serializable {
 	private String cpfOuCnpj;
 	private Integer tipo;
 
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
 	@JsonIgnoreProperties("cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
 
@@ -54,8 +57,8 @@ public class Cliente implements Serializable {
 	@CollectionTable(name = "telefone")
 	private Set<String> telefones = new HashSet<>();
 	
-	@OneToMany(mappedBy = "cliente")
-	@JsonIgnoreProperties("cliente")
+	@OneToMany(fetch = FetchType.EAGER , mappedBy = "cliente")
+	@JsonIgnore
 	private List<Pedido> pedidos = new ArrayList<>();
 
 	public Cliente(Long id, @NotBlank @Size(min = 3) String nome, @Email String email, String cpfOuCnpj,
@@ -67,6 +70,7 @@ public class Cliente implements Serializable {
 		this.tipo = tipo.getCod();
 	}
 
+	@JsonIgnore
 	public TipoCliente getTipo() {
 		return TipoCliente.toEnum(tipo);
 	}

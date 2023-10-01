@@ -2,6 +2,7 @@ package com.kaique.projetoLoja.domain;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kaique.projetoLoja.enums.EstadoPagamento;
 
@@ -13,7 +14,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +45,7 @@ public abstract class Pagamento implements Serializable{
 		this.pedido = pedido;
 	}
 
+	@JsonIgnore
 	public EstadoPagamento getEstado() {
 		return EstadoPagamento.noEnum(estado);
 	}

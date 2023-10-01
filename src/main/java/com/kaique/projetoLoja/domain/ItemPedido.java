@@ -2,6 +2,8 @@ package com.kaique.projetoLoja.domain;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kaique.projetoLoja.domain.PK.ItemPedidoPK;
 
 import jakarta.persistence.EmbeddedId;
@@ -40,6 +42,7 @@ public class ItemPedido implements Serializable{
 		this.preco = preco;
 	}
 
+	@JsonIgnore
 	public Produto getProduto() {
 		return id.getProduto();
 	}
@@ -48,6 +51,7 @@ public class ItemPedido implements Serializable{
 		id.setProduto(produto);
 	}
 
+	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
 	}

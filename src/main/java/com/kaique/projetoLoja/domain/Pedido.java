@@ -6,9 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -48,7 +50,9 @@ public class Pedido implements Serializable{
 	@JoinColumn(name = "endereco_id")
 	private Endereco enderecoDeEntrega;
 	 
-	@OneToMany(mappedBy = "id.pedido")
+	
+	@OneToMany(fetch = FetchType.LAZY ,  mappedBy = "id.pedido")
+	@JsonIgnoreProperties("pedido")
 	private List<ItemPedido> itens = new ArrayList<>();
 
 	public Pedido(Long id, Date data,Cliente cliente, Endereco enderecoDeEntrega) {
@@ -57,6 +61,4 @@ public class Pedido implements Serializable{
 		this.cliente = cliente;
 		this.enderecoDeEntrega = enderecoDeEntrega;
 	}
-
-
 }

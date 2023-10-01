@@ -2,6 +2,7 @@ package com.kaique.projetoLoja.domain.PK;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kaique.projetoLoja.domain.Pedido;
 import com.kaique.projetoLoja.domain.Produto;
 
@@ -20,10 +21,12 @@ public class ItemPedidoPK implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name = "produto_id")
+	@JsonIgnoreProperties("itens")
 	private Produto produto;
 	
 	@ManyToOne
 	@JoinColumn(name = "pedido_id")
+	@JsonIgnoreProperties("itens")
 	private Pedido pedido;
 
 }
