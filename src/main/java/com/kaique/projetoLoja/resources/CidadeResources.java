@@ -1,8 +1,8 @@
 package com.kaique.projetoLoja.resources;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,8 +27,8 @@ public class CidadeResources {
 	private CidadeService service;
 
 	@GetMapping
-	public ResponseEntity<List<Cidade>> findAll() {
-		List<Cidade> listaCidades = service.findAll();
+	public ResponseEntity<Page<Cidade>> findAll(Pageable pageable) {
+		Page<Cidade> listaCidades = service.findAll(pageable);
 		return listaCidades.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
 				: ResponseEntity.ok().body(listaCidades);
 	}
