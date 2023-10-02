@@ -2,6 +2,8 @@ package com.kaique.projetoLoja.domain;
 
 import java.util.Date;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.kaique.projetoLoja.enums.EstadoPagamento;
 
 import jakarta.persistence.Entity;
@@ -17,7 +19,10 @@ import lombok.Setter;
 public class PagamentoComBoleto extends Pagamento{
 	private static final long serialVersionUID = 1L;
 	
+	@UpdateTimestamp
 	private Date dataVencimento;
+	
+	@UpdateTimestamp
 	private Date dataPagamento;
 	
 	public PagamentoComBoleto(Long id, EstadoPagamento estado, Pedido pedido, Date dataVencimento, Date dataPagamento) {
