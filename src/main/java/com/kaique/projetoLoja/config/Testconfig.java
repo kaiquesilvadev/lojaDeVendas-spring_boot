@@ -6,6 +6,7 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import com.kaique.projetoLoja.domain.Categoria;
 import com.kaique.projetoLoja.domain.Cidade;
@@ -31,6 +32,7 @@ import com.kaique.projetoLoja.repositories.PedidoRepository;
 import com.kaique.projetoLoja.repositories.ProdutoRepository;
 
 @Configuration
+@Profile("test")
 public class Testconfig implements CommandLineRunner {
 
 	@Autowired
