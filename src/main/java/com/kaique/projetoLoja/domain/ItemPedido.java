@@ -3,7 +3,6 @@ package com.kaique.projetoLoja.domain;
 import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kaique.projetoLoja.domain.PK.ItemPedidoPK;
 
 import jakarta.persistence.EmbeddedId;
@@ -16,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Getter @Setter
 @Entity
 @Table(name = "tb_itemPedido")
@@ -24,6 +23,7 @@ public class ItemPedido implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId
+	@EqualsAndHashCode.Include
 	private ItemPedidoPK id = new ItemPedidoPK();
 	private Double desconto;
 

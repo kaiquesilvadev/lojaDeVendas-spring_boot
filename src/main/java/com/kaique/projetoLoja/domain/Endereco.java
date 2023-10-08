@@ -30,6 +30,7 @@ public class Endereco implements Serializable{
 
 	
 	@Id
+	@EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String logradouro;

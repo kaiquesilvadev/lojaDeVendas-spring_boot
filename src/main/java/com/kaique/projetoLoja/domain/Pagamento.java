@@ -7,8 +7,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.kaique.projetoLoja.enums.EstadoPagamento;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
@@ -21,24 +19,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@EqualsAndHashCode
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @Getter @Setter
 @Entity
 @Table(name = "tb_pagamento")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pagamento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue
+	@EqualsAndHashCode.Include
 	private Long id;
 	private Integer estado;
 	
 	@OneToOne
 	@JoinColumn(name = "pedido_id")
 	@MapsId
-	@JsonIgnore
+	@JsonIgnoreProperties("pagamento")
 	private Pedido pedido;
 
 	public Pagamento(Long id, EstadoPagamento estado, Pedido pedido) {

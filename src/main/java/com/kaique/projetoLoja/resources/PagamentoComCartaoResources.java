@@ -34,6 +34,7 @@ public class PagamentoComCartaoResources {
 				: ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
 
+	//modificar a logica depois 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
 		return service.delete(id) == true ? ResponseEntity.status(HttpStatus.OK).build()
