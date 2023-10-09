@@ -28,9 +28,7 @@ public class ClienteResources {
 
 	@GetMapping
 	public ResponseEntity<List<Cliente>> findAll() {
-		List<Cliente> listaClientes = service.findAll();
-		return listaClientes.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(listaClientes);
+		return ResponseEntity.ok().body(service.findAll());
 	}
 
 	@GetMapping("/{id}")

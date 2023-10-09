@@ -22,8 +22,7 @@ public class PagamentoComBoletoResources {
 
 	@GetMapping
 	public ResponseEntity<List<PagamentoComBoleto>> findAll() {
-		return service.findAll().isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(service.findAll());
+		return ResponseEntity.ok().body(service.findAll());
 	}
 
 	@GetMapping("{id}")

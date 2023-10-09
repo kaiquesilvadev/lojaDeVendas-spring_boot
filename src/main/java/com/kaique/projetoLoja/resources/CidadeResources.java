@@ -28,9 +28,7 @@ public class CidadeResources {
 
 	@GetMapping
 	public ResponseEntity<Page<Cidade>> findAll(Pageable pageable) {
-		Page<Cidade> listaCidades = service.findAll(pageable);
-		return listaCidades.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(listaCidades);
+		return  ResponseEntity.ok().body(service.findAll(pageable));
 	}
 
 	@GetMapping("/{id}")

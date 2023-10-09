@@ -28,17 +28,14 @@ public class EstadoResources {
 
 	@GetMapping
 	public ResponseEntity<List<Estado>> findAll() {
-		List<Estado> listaEstados = service.findAll();
-		return listaEstados.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(listaEstados);
+		return ResponseEntity.ok().body(service.findAll());
 	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<Estado> findById(@PathVariable Long id) {
 		Estado estado = service.findById(id);
 
-		return estado == null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(estado);
+		return estado == null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build() : ResponseEntity.ok().body(estado);
 	}
 
 	@PostMapping

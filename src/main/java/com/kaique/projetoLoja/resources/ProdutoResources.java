@@ -28,9 +28,7 @@ public class ProdutoResources {
 
 	@GetMapping
 	public ResponseEntity<List<Produto>> findAll() {
-		List<Produto> listaProdutos = service.findAll();
-		return listaProdutos.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(listaProdutos);
+		return ResponseEntity.ok().body(service.findAll());
 	}
 
 	@GetMapping("/{id}")

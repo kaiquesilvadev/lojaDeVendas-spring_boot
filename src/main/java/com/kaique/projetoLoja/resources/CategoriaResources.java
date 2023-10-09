@@ -28,9 +28,7 @@ public class CategoriaResources {
 
 	@GetMapping
 	public ResponseEntity<List<Categoria>> findAll() {
-		List<Categoria> listaCategorias = service.findAll();
-		return listaCategorias.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(listaCategorias);
+		return  ResponseEntity.ok().body(service.findAll());
 	}
 
 	@GetMapping("/{id}")

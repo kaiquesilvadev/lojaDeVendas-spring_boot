@@ -28,9 +28,7 @@ public class EnderecoResources {
 
 	@GetMapping
 	public ResponseEntity<List<Endereco>> findAll() {
-		List<Endereco> listaEnderecos = service.findAll();
-		return listaEnderecos.isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(listaEnderecos);
+		return ResponseEntity.ok().body(service.findAll());
 	}
 
 	@GetMapping("/{id}")

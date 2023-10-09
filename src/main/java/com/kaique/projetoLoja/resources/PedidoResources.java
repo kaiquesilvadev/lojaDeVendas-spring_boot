@@ -22,8 +22,7 @@ public class PedidoResources {
 
 	@GetMapping
 	public ResponseEntity<List<Pedido>> findAll() {
-		return service.findAll().isEmpty() ? ResponseEntity.status(HttpStatus.NOT_FOUND).build()
-				: ResponseEntity.ok().body(service.findAll());
+		return ResponseEntity.ok().body(service.findAll());
 	}
 
 	@GetMapping("{id}")
